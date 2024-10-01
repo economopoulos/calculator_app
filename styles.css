@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 
-:root{
+:root {
   --mainBackground: hsl(222, 26%, 31%);
   /* toggle background, keypad background */
   --veryDarkBlue: hsl(223, 31%, 20%);
@@ -8,25 +8,28 @@
 
   /* keys */
   --blueKeyBackground: hsl(225, 21%, 49%);
+  --blueKeyBackgroundOpacity: hsl(225, 21%, 49%,75%);
+  --blueKeyShadow: hsl(224, 28%, 35%);
   --blueKeyShadow: hsl(224, 28%, 35%);
   --redKeyBackground: hsl(6, 63%, 50%);
+  --redKeyBackgroundOpacity: hsla(6, 63%, 50%,90%);
   --redKeyShadow: hsl(6, 70%, 34%);
   --grayishKeyBackground: hsl(30, 25%, 89%);
-  --grayishKeyShadow:hsl(28, 16%, 65%);
+  --grayishKeyBackground: hsla(30, 25%, 89%);
+  --grayishKeyShadow: hsl(28, 16%, 65%);
 
   /* text */
   --darkGrayishBlueText: hsl(221, 14%, 31%);
   --white: hsl(0, 0%, 100%);
-
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: "League Spartan", sans-serif;
   font-size: 32px;
   background-color: var(--mainBackground);
@@ -38,63 +41,88 @@ body{
   min-height: 100vh;
 }
 
-label{
+label {
   display: block;
 }
 
-.container{
+.container {
   padding: 2rem 0;
   max-width: 500px;
 }
 
-header{
+header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
-.theme-btns{
+.theme-btns {
   display: flex;
   align-items: flex-end;
 }
 
-#logo{
+#logo {
   align-self: self-end;
   font-weight: bold;
 }
-.small-txt{
-  text-transform:uppercase;
-  font-size: .5em;
+.small-txt {
+  text-transform: uppercase;
+  font-size: 0.5em;
   margin-right: 1rem;
 }
-.checkbox{
+.checkbox {
   margin: 0;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
   /* padding: 1rem; */
   background-color: var(--veryDarkBlue);
   color: var(--veryDarkBlue);
 }
 
-label{
-  font-size: .5em;
+label {
+  font-size: 0.5em;
 }
 
-.checkboxes{
+.checkboxes {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: .2rem;
+  padding: .25rem;
   background-color: var(--veryDarkBlue);
-  border: none;
+  border: 1px solid var(--veryDarkBlue);
+  border-radius: 40px;
+  cursor: pointer;
+}
+#checkbox-1,
+#checkbox-2,
+#checkbox-3{
+  border-radius: 40px;
+  height: 15px;
+  width: 15px;
 }
 
-.spans span{
-  font-size: .6em;
+.active{
+  background-color: var(--redKeyBackground);
 }
 
-.input{
+#checkbox-2{
+  margin: 0 .25rem;
+}
+
+.spans{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.spans span {
+  font-size: 0.4em;
+  margin-bottom: 0.2rem;
+}
+
+.input {
   background-color: var(--screenBackground);
   padding: 2rem;
   text-align: end;
@@ -102,31 +130,32 @@ label{
   font-weight: bold;
   font-size: 1.2em;
   height: 100px;
+  color: var(--darkGrayishBlueText);
 }
 
 .input,
-.calculator-btns{
-    border-radius: 6px;
+.calculator-btns {
+  border-radius: 6px;
 }
 
-.btn{
-  font-size: .65em;
+.btn {
+  font-size: 0.65em;
   cursor: pointer;
   background-color: var(--grayishKeyBackground);
   color: var(--blueKeyShadow);
   font-weight: 700;
   text-align: center;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
   border-bottom: 3px solid var(--grayishKeyShadow);
 }
 
 .btn:hover,
-.btn:focus{
+.btn:focus {
   background-color: var(--white);
 }
 
-.calculator-btns{
+.calculator-btns {
   background-color: var(--veryDarkBlue);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -134,35 +163,39 @@ label{
   gap: 20px;
 }
 
-.reset-btn{
-  grid-column: 1 / span 2
+button{
+  border: none;
 }
-.equal-btn{
-  grid-column: 3 / span 2
+
+.reset-btn {
+  grid-column: 1 / span 2;
+}
+.equal-btn {
+  grid-column: 3 / span 2;
 }
 
 .reset-btn,
-.delete-btn{
+.delete-btn {
   background-color: var(--blueKeyBackground);
   color: var(--white);
   text-transform: uppercase;
-  border-bottom: 3px solid var(--blueKeyShadow)
+  border-bottom: 3px solid var(--blueKeyShadow);
 }
 
 .reset-btn:hover,
 .reset-btn:focus,
 .delete-btn:focus,
-.delete-btn:hover{
-  background-color: hsl(225, 43%, 63%);
+.delete-btn:hover {
+  background-color: var(--blueKeyBackgroundOpacity);
 }
 
-.equal-btn{
+.equal-btn {
   background-color: var(--redKeyBackground);
   color: var(--white);
   border-bottom: 3px solid var(--redKeyShadow);
 }
 
 .equal-btn:hover,
-.equal-btn:focus{
-  background-color: hsl(6, 59%, 55%);
+.equal-btn:focus {
+  background-color: var(--redKeyBackgroundOpacity);
 }
