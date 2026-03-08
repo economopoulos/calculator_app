@@ -7,6 +7,7 @@ const id = document.getElementById('logo')
 const themeText = document.querySelector('.small-txt')
 const spanArray = Array.from(document.querySelector('.spans').children)
 
+//this is a note
 function applyThemeOne() {
   spanArray.forEach((tag) => {
     tag.style.color = "white"
